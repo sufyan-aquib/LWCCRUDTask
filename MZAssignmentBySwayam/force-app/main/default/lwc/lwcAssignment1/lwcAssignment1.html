@@ -1,0 +1,56 @@
+<!-- 
+Assignment 1 given by Swayam
+
+1. Create calculator which takes two values as a input form lwc and display it as a result use Apex class
+    for calculations. 
+
+-->
+
+<template>
+    <div class="slds-p-around_small">
+    <lightning-card  variant="Narrow"  title="Calculate Sum On Button Click" icon-name="standard:account">
+        <div class="slds-p-horizontal_small">
+            <lightning-input type="number" variant="standard" name="aval" label="First Number" onchange={callme} ></lightning-input>
+            <lightning-input type="number" variant="standard" name="bval" label="Second Number" onchange={callme}></lightning-input>
+            <br/>
+            <br/>
+            <br/>
+            Result : <b>{sumResult}</b>
+        </div>
+        <p slot="footer">
+            <lightning-button variant="brand" label="Calculate" onclick={handleClick}></lightning-button>
+        </p>
+    </lightning-card>
+    </div>
+    <div class="slds-p-around_small">
+        <lightning-card variant="Narrow" title="Get Value From the Map According to the Key" icon-name="standard:account">
+            <div class="slds-p-horizontal_small">
+                <lightning-input type="number" variant="standard" name="aval" label="Enter Map Key" onchange={getValue}></lightning-input>
+                <br/>
+                <br/>
+                Value For The Provided Key : <b>{valueFromMap}</b>
+            </div> 
+            <p slot="footer">
+                <lightning-button variant="brand" label="Get Value" onclick={handleMapOperation}></lightning-button>
+            </p>
+        </lightning-card>
+    </div>
+
+    <div class="slds-p-around_small">
+        <lightning-card variant="Narrow" title="Array of values" icon-name="standard:account">
+            <div class="slds-p-horizontal_small">
+                <lightning-input type="text" variant="standard" name="arrayValue" label="Enter the Array Data :" onchange={getArrayValue}></lightning-input>
+            </div> 
+            <br/>
+            <br/>
+            <template if:true={displayArrayValues} for:each={displayArrayValues} for:item="item">
+                <p key={item} class="arrayValuesClass">
+                    {item}
+               </p>
+            </template>
+            <p slot="footer">
+                <lightning-button variant="brand" label="Display Value" onclick={handleArrayOperation}></lightning-button>
+            </p>
+        </lightning-card>
+    </div>
+</template>

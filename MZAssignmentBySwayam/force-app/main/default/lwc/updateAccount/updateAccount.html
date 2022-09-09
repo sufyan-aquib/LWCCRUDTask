@@ -1,0 +1,33 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open slds-modal_medium">
+        <div class="slds-modal__container">
+            <lightning-button-icon
+            class="slds-modal__close"
+            title="Close"
+            icon-name="utility:close"
+            icon-class="slds-button_icon-inverse"
+            onclick={handleClose}
+          ></lightning-button-icon>
+    <lightning-card  variant="Narrow"  title="Update Account Details" icon-name="standard:case">
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <lightning-record-edit-form id="recordViewForm"
+                        record-id={getrecordid}
+                        object-api-name={objName}
+                        onsubmit={handleSubmit}
+                        >
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field field-name="Type"></lightning-input-field>
+                <lightning-input-field field-name="Phone"></lightning-input-field>
+                <lightning-input-field field-name="Industry"></lightning-input-field>
+                <lightning-input-field field-name="AnnualRevenue"></lightning-input-field>
+                <!-- submit -->
+                <lightning-button type="submit" label="Update"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+    </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

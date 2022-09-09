@@ -1,0 +1,30 @@
+<template>
+    <lightning-card variant="Narrow" title="Account Details" icon-name="standard:account">
+        <div slot="actions" class="slds-p-around_large">
+            <lightning-button variant="Brand" label="Add" title="Add Account" onclick={handleAdd}></lightning-button>
+            &nbsp; &nbsp;
+            <lightning-button variant="Brand" label="Delete" title="Delete Account" onclick={handleDelete}>
+            </lightning-button> &nbsp; &nbsp;
+            <lightning-button variant="Brand" label="Update" title="Update Account" onclick={handleUpdate}>
+            </lightning-button> &nbsp; &nbsp;
+            <lightning-button variant="Brand" label="Refresh" title="Refresh" onclick={handleRefresh}>
+            </lightning-button> &nbsp;
+        </div>
+        <div class="slds-p-around_large">
+            <lightning-card>
+
+                <lightning-datatable 
+                    key-field="id" 
+                    data={dataList} 
+                    columns={columnsList} 
+                    show-row-number-column
+                     >
+                </lightning-datatable>
+
+            </lightning-card>
+        </div>
+    </lightning-card>
+    <c-insert-account if:true={showAddAccount}></c-insert-account>
+    <c-delete-account if:true={showDeleteAccount}></c-delete-account>
+    <c-update-account if:true={showUpdateAccount} getrecordid={recordId} ></c-update-account>
+</template>
